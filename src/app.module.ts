@@ -10,12 +10,12 @@ import { ProtectedRouteModule } from './protected-route/protected-route.module';
   controllers: [AppController],
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: '127.0.0.1',
-      port: 3306,
+      type: 'postgres',
+      host: 'dpg-cjcvklvdb61s73acv8tg-a',
+      port: 5432,
       username: 'root',
-      password: '',
-      database: 'nestjs',
+      password: 'sj5pDEi5nUJNE0v1LSCbXlaXziSaWSrO',
+      database: 'nestjs_i3hi',
       entities: [User],
       synchronize: true,
     }),
