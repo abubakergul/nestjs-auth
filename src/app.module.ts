@@ -5,17 +5,17 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { User } from './auth/entity/user.entity';
 import { ProtectedRouteModule } from './protected-route/protected-route.module';
-
+require('dotenv').config();
 @Module({
   controllers: [AppController],
   imports: [
     TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'dpg-cjcvklvdb61s73acv8tg-a',
-      port: 5432,
-      username: 'root',
-      password: 'sj5pDEi5nUJNE0v1LSCbXlaXziSaWSrO',
-      database: 'nestjs_i3hi',
+      type: process.env.DB_TYPE,
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT),
+      username: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
       entities: [User],
       synchronize: true,
     }),
