@@ -5,12 +5,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { User } from './auth/entity/user.entity';
 import { ProtectedRouteModule } from './protected-route/protected-route.module';
+
 require('dotenv').config();
 @Module({
   controllers: [AppController],
   imports: [
     TypeOrmModule.forRoot({
-      type: process.env.DB_TYPE,
+      type: process.env.DB_TYPE as "postgres",
       host: process.env.DB_HOST,
       port: parseInt(process.env.DB_PORT),
       username: process.env.DB_USER,
